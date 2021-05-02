@@ -14,21 +14,40 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-from HeroicaTour_DB.views import sitios
-from HeroicaTour_DB.views import tours
-from HeroicaTour_DB.views import restaurantes
-from HeroicaTour_DB.views import autos
-from HeroicaTour_DB.views import hoteles
-from HeroicaTour_DB.views import trabajadores
+from django.urls import path, include
+from HeroicaTour_DB import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sitios/', sitios),
-    path('tours/', tours),
-    path('restaurantes/', restaurantes),
-    path('autos/', autos),
-    path('hoteles/', hoteles),
-    path('trabajadores/', trabajadores)
+    path('cl/trabajadores/', views.ClTrabajadorView.as_view()),
+    path('ad/trabajadores/', views.AdTrabajadorView.as_view()),
+    path('ad/trabajadores/<int:pk>', views.AdTrabajadorViewDetails.as_view()),
+    
+    path('cl/clientes/', views.ClClienteView.as_view()),
+    path('ad/clientes/', views.AdClienteView.as_view()),
+    path('ad/clientes/<int:pk>', views.AdClienteViewDetails.as_view()),
+    
+    path('cl/autos/', views.ClAutoView.as_view()),
+    path('ad/autos/', views.AdAutoView.as_view()),
+    path('ad/autos/<int:pk>', views.AdAutoViewDetails.as_view()),
+    
+    path('cl/sitios/', views.ClSitioView.as_view()),
+    path('ad/sitios/', views.AdSitioView.as_view()),
+    path('ad/sitios/<int:pk>', views.AdSitioViewDetails.as_view()),
+    
+    path('cl/tours/', views.ClTourView.as_view()),
+    path('ad/tours/', views.AdTourView.as_view()),
+    path('ad/tours/<int:pk>', views.AdTourViewDetails.as_view()),
+    
+    path('cl/restaurantes/', views.ClRestView.as_view()),
+    path('ad/restaurantes/', views.AdRestView.as_view()),
+    path('ad/restaurantes/<int:pk>', views.AdRestViewDetails.as_view()),
+    
+    path('cl/hoteles/', views.ClHotelView.as_view()),
+    path('ad/hoteles/', views.AdHotelView.as_view()),
+    path('ad/hoteles/<int:pk>', views.AdHotelViewDetails.as_view()),
+    
+    path('cl/taxi/', views.ClTaxiView.as_view()),
+    path('ad/taxi/', views.AdTaxiView.as_view()),
+    path('ad/taxi/<int:pk>', views.AdTaxiViewDetails.as_view()),
 ]
