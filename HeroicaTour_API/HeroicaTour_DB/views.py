@@ -17,7 +17,7 @@ from .models import Taxi as modeltaxi
 # Create your views here.
 class ClTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.CS_Trabajador
-    queryset = modeltrabajador.objects.filter(Rol='Guía')
+    queryset = modeltrabajador.objects.all()
     
 class ClClienteView(ListAPIView, CreateAPIView):
     serializer_class = serializer.CS_Cliente
