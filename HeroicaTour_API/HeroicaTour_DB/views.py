@@ -13,6 +13,7 @@ from .models import Tour as modeltour
 from .models import Restaurante as modelrest
 from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
+from .models import Souvenir as modelsouvenir
 
 # Create your views here.
 class ClTrabajadorView(ListAPIView, CreateAPIView):
@@ -46,6 +47,10 @@ class ClHotelView(ListAPIView, CreateAPIView):
 class ClTaxiView(ListAPIView, CreateAPIView):
     serializer_class = serializer.CS_Taxi
     queryset = modeltaxi.objects.all()
+    
+class ClSouvenirView(ListAPIView, CreateAPIView):
+    serializer_class = serializer.CS_Souvenir
+    queryset = modelsouvenir.objects.all()
 
 
 class AdTrabajadorView(ListAPIView, CreateAPIView):
@@ -177,6 +182,23 @@ class AdTaxiView(ListAPIView, CreateAPIView):
 class AdTaxiViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     serializer_class = serializer.AS_Taxi
     queryset = modeltaxi.objects.all()
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+class AdSouvenirView(ListAPIView, CreateAPIView):
+    serializer_class = serializer.AS_Souvenir
+    queryset = modelsouvenir.objects.all()
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+class AdSouvenirViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.AS_Souvenir
+    queryset = modelsouvenir.objects.all()
     
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)

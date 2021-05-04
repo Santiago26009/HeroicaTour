@@ -50,4 +50,8 @@ urlpatterns = [
     path('cl/taxi/', views.ClTaxiView.as_view()),
     path('ad/taxi/', views.AdTaxiView.as_view()),
     path('ad/taxi/<int:pk>', views.AdTaxiViewDetails.as_view()),
+    
+    path('cl/souvenir/', views.ClSouvenirView.as_view()),
+    path('ad/souvenir/', views.AdSouvenirView.as_view()),
+    path('ad/souvenir/<int:pk>', views.AdSouvenirViewDetails.as_view()),
 ]

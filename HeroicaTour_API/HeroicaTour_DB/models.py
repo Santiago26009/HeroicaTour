@@ -95,3 +95,9 @@ class Preferencia(models.Model):
     Alojamiento = models.BooleanField(default=False)
     Auto = models.BooleanField(default=False)
     Duracion = models.IntegerField(null=False)
+    
+class Souvenir(models.Model):
+    Nombre = models.CharField(max_length=25)
+    LugardeVenta = models.CharField(max_length=25)
+    CostoMin = MoneyField(max_digits=10, default_currency='COP')
+    costoMax = MoneyField(max_digits=10, default_currency='COP')
