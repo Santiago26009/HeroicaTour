@@ -24,6 +24,7 @@ urlpatterns = [
     path('ad/trabajadores/<int:pk>', views.AdTrabajadorViewDetails.as_view()),
     
     path('cl/clientes/', views.ClClienteView.as_view()),
+    path('cl/clientes/<int:pk>', views.ClClienteViewDetails.as_view()),
     path('ad/clientes/', views.AdClienteView.as_view()),
     path('ad/clientes/<int:pk>', views.AdClienteViewDetails.as_view()),
     
@@ -54,4 +55,9 @@ urlpatterns = [
     path('cl/souvenir/', views.ClSouvenirView.as_view()),
     path('ad/souvenir/', views.AdSouvenirView.as_view()),
     path('ad/souvenir/<int:pk>', views.AdSouvenirViewDetails.as_view()),
+    
+    path('cl/preferencias/', views.ClPreferenciaView.as_view()),
+    path('cl/preferencias/<int:pk>', views.ClPreferenciaViewDetails.as_view()),
+    path('ad/preferencias/', views.AdPreferenciaView.as_view()),
+    path('ad/preferencias/<int:pk>', views.AdPreferenciaViewDetails.as_view()),
 ]

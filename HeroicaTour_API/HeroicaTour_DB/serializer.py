@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir
+from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
 
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
@@ -89,4 +89,14 @@ class CS_Souvenir(serializers.ModelSerializer):
 class AS_Souvenir(serializers.ModelSerializer):
     class Meta:
         model = Souvenir
+        fields = ('__all__')
+
+class CS_Preferencia(serializers.ModelSerializer):
+    class Meta:
+        model = Preferencia
+        fields = ['Cliente','Presupuesto','Acompañantes','Alojamiento', 'Auto','Playa','Historia','Recordatorio','Duracion']
+        
+class AS_Preferencia(serializers.ModelSerializer):
+    class Meta:
+        model = Preferencia
         fields = ('__all__')

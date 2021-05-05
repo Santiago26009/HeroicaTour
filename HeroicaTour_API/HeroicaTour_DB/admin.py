@@ -8,7 +8,7 @@ from HeroicaTour_DB.models import Hotel
 from HeroicaTour_DB.models import Trabajador
 from HeroicaTour_DB.models import Cliente
 from HeroicaTour_DB.models import Preferencia
-from HeroicaTour_DB.models import Reseña
+from HeroicaTour_DB.models import Resena
 from HeroicaTour_DB.models import Taxi
 from HeroicaTour_DB.models import Souvenir
 
@@ -20,6 +20,6 @@ admin.site.register(Hotel)
 admin.site.register(Trabajador)
 admin.site.register(Cliente)
 admin.site.register(Preferencia)
-admin.site.register(Reseña)
+admin.site.register(Resena)
 admin.site.register(Taxi)
 admin.site.register(Souvenir)

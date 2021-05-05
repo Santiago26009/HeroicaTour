@@ -14,45 +14,69 @@ from .models import Restaurante as modelrest
 from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
+from. models import Preferencia as modelpreferencia
 
 # Create your views here.
-class ClTrabajadorView(ListAPIView, CreateAPIView):
+class ClTrabajadorView(ListAPIView):
     serializer_class = serializer.CS_Trabajador
     queryset = modeltrabajador.objects.filter(Rol='Guia')
     
-class ClClienteView(ListAPIView, CreateAPIView):
+class ClClienteView(CreateAPIView):
     serializer_class = serializer.CS_Cliente
     queryset = modelcliente.objects.all()
 
-class ClAutoView(ListAPIView, CreateAPIView):
+class ClClienteViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.CS_Cliente
+    queryset = modelcliente.objects.all()
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+class ClAutoView(ListAPIView):
     serializer_class = serializer.CS_Auto
     queryset = modelauto.objects.all()
     
-class ClSitioView(ListAPIView, CreateAPIView):
+class ClSitioView(ListAPIView):
     serializer_class = serializer.CS_Sitio
     queryset = modelsitio.objects.all()
     
-class ClTourView(ListAPIView, CreateAPIView):
+class ClTourView(ListAPIView):
     serializer_class = serializer.CS_Tour
     queryset = modeltour.objects.all()
     
-class ClRestView(ListAPIView, CreateAPIView):
+class ClRestView(ListAPIView):
     serializer_class = serializer.CS_Rest
     queryset = modelrest.objects.all()
     
-class ClHotelView(ListAPIView, CreateAPIView):
+class ClHotelView(ListAPIView):
     serializer_class = serializer.CS_Hotel
     queryset = modelhotel.objects.all()
     
-class ClTaxiView(ListAPIView, CreateAPIView):
+class ClTaxiView(ListAPIView):
     serializer_class = serializer.CS_Taxi
     queryset = modeltaxi.objects.all()
     
-class ClSouvenirView(ListAPIView, CreateAPIView):
+class ClSouvenirView(ListAPIView):
     serializer_class = serializer.CS_Souvenir
     queryset = modelsouvenir.objects.all()
 
+class ClPreferenciaView(CreateAPIView):
+    serializer_class = serializer.CS_Preferencia
+    queryset = modelpreferencia.objects.all()
 
+class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.CS_Preferencia
+    queryset = modelpreferencia.objects.all()
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+    
 class AdTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.AS_Trabajador
     queryset = modeltrabajador.objects.all()
@@ -199,6 +223,23 @@ class AdSouvenirView(ListAPIView, CreateAPIView):
 class AdSouvenirViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     serializer_class = serializer.AS_Souvenir
     queryset = modelsouvenir.objects.all()
+    
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+    
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+class AdPreferenciaView(ListAPIView, CreateAPIView):
+    serializer_class = serializer.AS_Preferencia
+    queryset = modelpreferencia.objects.all()
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+class AdPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.AS_Preferencia
+    queryset = modelpreferencia.objects.all()
     
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
