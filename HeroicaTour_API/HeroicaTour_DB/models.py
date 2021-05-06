@@ -1,7 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 from djmoney.models.fields import MoneyField
 
 # Create your models here.
+class Cliente(models.Model):
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    Nombre = models.CharField(max_length=25, null=False)
+    Apellidos = models.CharField(max_length=25, null=False)
+    Nacionalidad = models.CharField(max_length=25, null=False)
+    Celular = models.CharField(max_length=15)
+
 class Trabajador(models.Model):
     Guia = 'Guia'
     Soporte = 'Soporte'
@@ -11,14 +19,23 @@ class Trabajador(models.Model):
         (Soporte,'Soporte'),
         (Admin, 'Admin'),
     ]
-    Usuario = models.CharField(max_length=25)
-    Password = models.CharField(max_length=25, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Nombre = models.CharField(max_length=25, null=False)
     Apellidos = models.CharField(max_length=25, null=False)
     Celular = models.CharField(max_length=15)
-    Email = models.EmailField(max_length=254)
     Rate = models.DecimalField(decimal_places=1, max_digits=5)
     Rol = models.CharField(max_length=25, choices=rol, default=None)
+
+class Preferencia(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    Presupuesto = MoneyField(max_digits=10, default_currency='COP')
+    Acompañantes = models.IntegerField(null=False)
+    Alojamiento = models.BooleanField(default=False)
+    Auto = models.BooleanField(default=False)
+    Playa = models.BooleanField(default=False)
+    Historia = models.BooleanField(default=False)
+    Recordatorio = models.BooleanField(default=False)
+    Duracion = models.IntegerField(null=False)
 
 class SitioTuristico(models.Model):
     CentroComercial = 'Centros Comerciales'
@@ -79,6 +96,22 @@ class Restaurante(models.Model):
     CostoMax = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
 
+class Hotel(models.Model):
+    Lujoso = 'Lujoso'
+    Modesto = 'Modesto'
+    Noche = 'Solo pasar la noche'
+    categoriah = [
+        (Lujoso,'Lujoso'),
+        (Modesto,'Modesto'),
+        (Noche, 'Solo pasar la noche'),
+    ]
+    Nombre = models.CharField(max_length=25, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5)
+    Direccion = models.CharField(max_length=25, null=False)
+    Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
+    Telefono = models.CharField(max_length=10, null=True)
+    Web = models.CharField(max_length=25, null=False)
+
 class Auto(models.Model):
     Rojo = 'Rojo'
     Gris = 'Gris'
@@ -109,21 +142,11 @@ class Auto(models.Model):
     CostoPerDay = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
 
-class Hotel(models.Model):
-    Lujoso = 'Lujoso'
-    Modesto = 'Modesto'
-    Noche = 'Solo pasar la noche'
-    categoriah = [
-        (Lujoso,'Lujoso'),
-        (Modesto,'Modesto'),
-        (Noche, 'Solo pasar la noche'),
-    ]
-    Nombre = models.CharField(max_length=25, null=False)
-    Rate = models.DecimalField(decimal_places=1, max_digits=5)
-    Direccion = models.CharField(max_length=25, null=False)
-    Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
-    Telefono = models.CharField(max_length=10, null=True)
-    Web = models.CharField(max_length=25, null=False)
+class Souvenir(models.Model):
+    Nombre = models.CharField(max_length=25)
+    LugardeVenta = models.CharField(max_length=25)
+    CostoMin = MoneyField(max_digits=10, default_currency='COP')
+    costoMax = MoneyField(max_digits=10, default_currency='COP')   
 
 class Taxi(models.Model):
     Barrio = models.CharField(max_length=25, null=False, primary_key=True)
@@ -143,16 +166,7 @@ class Taxi(models.Model):
     Baru = MoneyField(max_digits=10, default_currency='COP')
     Aeropuerto = MoneyField(max_digits=10, default_currency='COP')
     Terminal = MoneyField(max_digits=10, default_currency='COP')
-
-class Cliente(models.Model):
-    Usuario = models.CharField(max_length=25)
-    Password = models.CharField(max_length=25, null=False)
-    Nombre = models.CharField(max_length=25, null=False)
-    Apellidos = models.CharField(max_length=25, null=False)
-    Nacionalidad = models.CharField(max_length=25, null=False)
-    Celular = models.CharField(max_length=15)
-    Email = models.EmailField(max_length=254)
-
+    
 class Resena(models.Model):
     Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
     Trabajador = models.ForeignKey(Trabajador, on_delete=models.SET_NULL, null=True)
@@ -163,20 +177,3 @@ class Resena(models.Model):
     Auto = models.ForeignKey(Auto, on_delete=models.SET_NULL, null=True)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
-
-class Preferencia(models.Model):
-    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
-    Presupuesto = MoneyField(max_digits=10, default_currency='COP')
-    Acompañantes = models.IntegerField(null=False)
-    Alojamiento = models.BooleanField(default=False)
-    Auto = models.BooleanField(default=False)
-    Playa = models.BooleanField(default=False)
-    Historia = models.BooleanField(default=False)
-    Recordatorio = models.BooleanField(default=False)
-    Duracion = models.IntegerField(null=False)
-    
-class Souvenir(models.Model):
-    Nombre = models.CharField(max_length=25)
-    LugardeVenta = models.CharField(max_length=25)
-    CostoMin = MoneyField(max_digits=10, default_currency='COP')
-    costoMax = MoneyField(max_digits=10, default_currency='COP')    
