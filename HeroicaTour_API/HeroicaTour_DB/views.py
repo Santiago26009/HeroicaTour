@@ -94,12 +94,9 @@ class AdTrabajadorViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
-class AdClienteView(ListAPIView, CreateAPIView):
+class AdClienteView(ListAPIView):
     serializer_class = serializer.AS_Cliente
     queryset = modelcliente.objects.all()
-    
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
 
 class AdClienteViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     serializer_class = serializer.AS_Cliente

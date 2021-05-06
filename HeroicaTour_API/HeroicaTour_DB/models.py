@@ -8,7 +8,7 @@ class Trabajador(models.Model):
     Admin = 'Admin'
     rol = [
         (Guia,'Guia'),
-        (Soporte,'Guia'),
+        (Soporte,'Soporte'),
         (Admin, 'Admin'),
     ]
     Usuario = models.CharField(max_length=25)
@@ -29,7 +29,7 @@ class SitioTuristico(models.Model):
         (CentroComercial,'Centros Comerciales'),
         (Playas,'Playas'),
         (Turistico, 'Turistico'),
-        (Centro, 'Diversion'),
+        (Centro, 'Centro Historico'),
     ]
     Nombre = models.CharField(max_length=25, null=False)
     Direccion = models.CharField(max_length=25, null=False)
@@ -126,7 +126,7 @@ class Hotel(models.Model):
     Web = models.CharField(max_length=25, null=False)
 
 class Taxi(models.Model):
-    Barrio = MoneyField(max_digits=10, default_currency='COP', primary_key=True)
+    Barrio = models.CharField(max_length=25, null=False, primary_key=True)
     Centro = MoneyField(max_digits=10, default_currency='COP')
     Crespo = MoneyField(max_digits=10, default_currency='COP')
     Marbella = MoneyField(max_digits=10, default_currency='COP')

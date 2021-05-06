@@ -24,9 +24,9 @@ class AS_Cliente(serializers.ModelSerializer):
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
         model = Auto
-        fields = ['Matricula','Marca','Modelo','Rate','Capacidad','CostoPerDay','Descripcion'] 
+        fields = ['Matricula','Marca','Modelo', 'Color', 'Rate','Capacidad','CostoPerDay','Descripcion'] 
 
-class AS_Auto(serializers.ModelSerializer):
+class AS_Auto(serializers.ModelSerializer): 
     class Meta:
         model = Auto
         fields = ('__all__')
@@ -34,7 +34,7 @@ class AS_Auto(serializers.ModelSerializer):
 class CS_Sitio(serializers.ModelSerializer):
     class Meta:
         model = SitioTuristico
-        fields = ['Nombre','Direccion','Rate','Costo','Categoria','Descripcion']
+        fields = ['Nombre','Direccion','Rate','CostoEntrada','Categoria','Descripcion']
 
 class AS_Sitio(serializers.ModelSerializer):
     class Meta:
@@ -74,12 +74,12 @@ class AS_Hotel(serializers.ModelSerializer):
 class CS_Taxi(serializers.ModelSerializer):
     class Meta:
         model = Taxi
-        fields = ['Barrio','Centro','Crespo','Marbella','Cabrero','Bocagrande','CastilloGrande','ElLaguito','LaBoquilla','Manzanillo','SanFelipe','LaPopa','Manga']
+        fields = ['Barrio','Centro','Crespo','Marbella','Cabrero','Bocagrande','CastilloGrande','ElLaguito','LaBoquilla','Manzanillo','SanFelipe','LaPopa','Manga', 'PlayaBlanca', 'Baru', 'Aeropuerto','Terminal']
         
 class AS_Taxi(serializers.ModelSerializer):
     class Meta:
         model = Taxi
-        fields = ['Barrio','Centro','Crespo','Marbella','Cabrero','Bocagrande','CastilloGrande','ElLaguito','LaBoquilla','Manzanillo','SanFelipe','LaPopa','Manga']
+        fields = ['Barrio','Centro','Crespo','Marbella','Cabrero','Bocagrande','CastilloGrande','ElLaguito','LaBoquilla','Manzanillo','SanFelipe','LaPopa','Manga', 'PlayaBlanca', 'Baru', 'Aeropuerto','Terminal']
         
 class CS_Souvenir(serializers.ModelSerializer):
     class Meta:
