@@ -9,6 +9,7 @@ class Cliente(models.Model):
     Apellidos = models.CharField(max_length=25, null=False)
     Nacionalidad = models.CharField(max_length=25, null=False)
     Celular = models.CharField(max_length=15)
+    Encuesta = models.BooleanField(default=False)
 
 class Trabajador(models.Model):
     Guia = 'Guia'

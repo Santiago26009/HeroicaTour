@@ -18,6 +18,8 @@ from django.urls import path, include
 from HeroicaTour_DB import views
 from knox import views as knox_views
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     
@@ -69,4 +71,4 @@ urlpatterns = [
     path('cl/preferencias/<int:pk>', views.ClPreferenciaViewDetails.as_view()),
     path('ad/preferencias/', views.AdPreferenciaView.as_view()),
     path('ad/preferencias/<int:pk>', views.AdPreferenciaViewDetails.as_view()),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
