@@ -16,9 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from HeroicaTour_DB import views
+from knox import views as knox_views
+from django.urls import path
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
+    
+    path('register/', views.RegisterAPI.as_view()),
+    path('login/', views.LoginAPI.as_view(), name='login'),
+    path('logout/', knox_views.LogoutView.as_view(), name='logout'),
+    path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    
     path('cl/trabajadores/', views.ClTrabajadorView.as_view()),
     path('ad/trabajadores/', views.AdTrabajadorView.as_view()),
     path('ad/trabajadores/<int:pk>', views.AdTrabajadorViewDetails.as_view()),
