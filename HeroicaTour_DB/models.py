@@ -115,6 +115,7 @@ class Hotel(models.Model):
     Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
     Telefono = models.CharField(max_length=10, null=True)
     Web = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=25, null=False)
 
 class Auto(models.Model):
     Rojo = 'Rojo'
