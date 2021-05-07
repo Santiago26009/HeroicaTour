@@ -87,13 +87,14 @@ WSGI_APPLICATION = 'HeroicaTour_API.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd66mkec8psn4ik',
-        'USER': 'cqvnbxojihcfxv',
-        'PASSWORD':'2a3a8a460028b989536e4796b643e8eeba65d8a48397f16cf2d39643c556b354',
-        'HOST': 'ec2-184-73-198-174.compute-1.amazonaws.com',
+        'NAME': 'db4c82qis0luod',
+        'USER': 'rskgsvrpwbqcoh',
+        'PASSWORD':'7470fff61d787befd9674baf1794968fcace5361305d921c4f26896d5363251f',
+        'HOST': 'ec2-18-215-111-67.compute-1.amazonaws.com',
         'PORT': 5432
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
