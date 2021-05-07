@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^tar(h0%90wvafiquvi=xxxdm7&e!r0_du5glqk8r4_qrtrc1l
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['heroicatour.herokuapp.com','127.0.0.1']
 
