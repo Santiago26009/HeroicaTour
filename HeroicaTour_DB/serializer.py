@@ -20,7 +20,7 @@ class CS_Cliente(serializers.ModelSerializer):
 class AS_Cliente(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular','Email']
+        fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular']
 
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
