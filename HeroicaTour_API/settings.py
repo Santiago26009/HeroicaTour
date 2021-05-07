@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-^tar(h0%90wvafiquvi=xxxdm7&e!r0_du5glqk8r4_qrtrc1l')
+SECRET_KEY = 'django-insecure-^tar(h0%90wvafiquvi=xxxdm7&e!r0_du5glqk8r4_qrtrc1l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,14 +84,17 @@ WSGI_APPLICATION = 'HeroicaTour_API.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'HeroicaTour',
-        'USER': 'postgres',
-        'PASSWORD':'soldiersz7',
-        'HOST': 'LocalHost',
-        'PORT':'5432'
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+    #'default':{
+     #   'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      #  'NAME': 'HeroicaTour',
+       # 'USER': 'postgres',
+        #'PASSWORD':'soldiersz7',
+        #'HOST': 'LocalHost',
+        #'PORT':'5432'
+   # }
 }
 
 
@@ -153,5 +156,5 @@ REST_FRAMEWORK = {
     ]
 }
 
-if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
-   from .settings_pr import *
+#if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+ #  from .settings_pr import *
