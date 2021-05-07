@@ -71,4 +71,5 @@ urlpatterns = [
     path('cl/preferencias/<int:pk>', views.ClPreferenciaViewDetails.as_view()),
     path('ad/preferencias/', views.AdPreferenciaView.as_view()),
     path('ad/preferencias/<int:pk>', views.AdPreferenciaViewDetails.as_view()),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
