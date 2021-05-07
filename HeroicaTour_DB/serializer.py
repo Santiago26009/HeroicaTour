@@ -25,7 +25,7 @@ class AS_Cliente(serializers.ModelSerializer):
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
         model = Auto
-        fields = ['Matricula','Marca','Modelo', 'Color', 'Rate','Capacidad','CostoPerDay','Descripcion'] 
+        fields = ['Matricula','Marca','Modelo', 'Color', 'Rate','Capacidad','CostoPerDay','Descripcion', 'Image'] 
 
 class AS_Auto(serializers.ModelSerializer): 
     class Meta:
@@ -35,7 +35,7 @@ class AS_Auto(serializers.ModelSerializer):
 class CS_Sitio(serializers.ModelSerializer):
     class Meta:
         model = SitioTuristico
-        fields = ['Nombre','Direccion','Rate','CostoEntrada','Categoria','Descripcion']
+        fields = ['Nombre','Direccion','Rate','CostoEntrada','Categoria','Descripcion','Image']
 
 class AS_Sitio(serializers.ModelSerializer):
     class Meta:
@@ -45,7 +45,7 @@ class AS_Sitio(serializers.ModelSerializer):
 class CS_Tour(serializers.ModelSerializer):
     class Meta:
         model = Tour
-        fields = ['Nombre','Categoria','Rate','Descripcion','Costo','Duracion']
+        fields = ['Nombre','Categoria','Rate','Descripcion','Costo','Duracion','Image']
         
 class AS_Tour(serializers.ModelSerializer):
     class Meta:
@@ -55,7 +55,7 @@ class AS_Tour(serializers.ModelSerializer):
 class CS_Rest(serializers.ModelSerializer):
     class Meta:
         model = Restaurante
-        fields = ['Nombre','Direccion','Categoria','Rate','CostoMin','CostoMax','Descripcion']
+        fields = ['Nombre','Direccion','Categoria','Rate','CostoMin','CostoMax','Descripcion','Image']
         
 class AS_Rest(serializers.ModelSerializer):
     class Meta:
@@ -85,7 +85,7 @@ class AS_Taxi(serializers.ModelSerializer):
 class CS_Souvenir(serializers.ModelSerializer):
     class Meta:
         model = Souvenir
-        fields = ['Nombre','LugardeVenta','CostoMin','CostoMax']
+        fields = ['Nombre','LugardeVenta','CostoMin','CostoMax','Image']
         
 class AS_Souvenir(serializers.ModelSerializer):
     class Meta:

@@ -55,6 +55,7 @@ class SitioTuristico(models.Model):
     CostoEntrada = MoneyField(max_digits=10, default_currency='COP')
     Categoria = models.CharField(max_length=25, choices=categoriast, default=None)
     Descripcion = models.TextField(max_length=500)
+    Image = models.CharField(max_length=25, null=False)
 
 class Tour(models.Model):
     Playas = 'Playas'
@@ -73,6 +74,7 @@ class Tour(models.Model):
     Descripcion = models.TextField(max_length=500)
     Costo = MoneyField(max_digits=10, default_currency='COP')
     Duracion = models.IntegerField(null=False)
+    Image = models.CharField(max_length=25, null=False)
 
 class Restaurante(models.Model):
     Corriente = 'Corrientes'
@@ -96,6 +98,7 @@ class Restaurante(models.Model):
     CostoMin = MoneyField(max_digits=10, default_currency='COP')
     CostoMax = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
+    Image = models.CharField(max_length=25, null=False)
 
 class Hotel(models.Model):
     Lujoso = 'Lujoso'
@@ -142,12 +145,14 @@ class Auto(models.Model):
     Capacidad = models.IntegerField(null=False)
     CostoPerDay = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
+    Image = models.CharField(max_length=25, null=False)
 
 class Souvenir(models.Model):
     Nombre = models.CharField(max_length=25)
     LugardeVenta = models.CharField(max_length=25)
     CostoMin = MoneyField(max_digits=10, default_currency='COP')
-    costoMax = MoneyField(max_digits=10, default_currency='COP')   
+    costoMax = MoneyField(max_digits=10, default_currency='COP')
+    Image = models.CharField(max_length=25, null=False)   
 
 class Taxi(models.Model):
     Barrio = models.CharField(max_length=25, null=False, primary_key=True)
