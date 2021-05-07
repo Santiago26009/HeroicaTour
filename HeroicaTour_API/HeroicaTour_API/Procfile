@@ -1,1 +1,0 @@
-web: gunicorn HeroicaTour_API.wsgi --log-file -
