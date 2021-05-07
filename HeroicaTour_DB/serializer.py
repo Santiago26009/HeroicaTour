@@ -5,22 +5,22 @@ from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        fields = ['Nombre','Apellidos','Email','Rate']
+        fields = ['Nombre','Apellidos','Rate']
 
 class AS_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        fields = ['id','Usuario','Nombre','Apellidos','Celular','Email','Rate','Rol']
+        fields = ['id','Usuario','Nombre','Apellidos','Celular','Rate','Rol']
 
 class CS_Cliente(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ('__all__')
+        fields = ('id','Usuario','Nombre','Apellidos','Nacionalidad','Celular')
 
 class AS_Cliente(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular']
+        fields = ['Usuario','Nombre','Apellidos','Nacionalidad','Celular']
 
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
