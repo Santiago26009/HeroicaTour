@@ -5,12 +5,12 @@ from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        fields = ['Nombre','Apellidos','Email','Rate']
+        fields = ['Nombre','Apellidos','Rate','Celular']
 
 class AS_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        fields = ['id','Usuario','Nombre','Apellidos','Celular','Email','Rate','Rol']
+        fields = ('__all__')
 
 class CS_Cliente(serializers.ModelSerializer):
     class Meta:
