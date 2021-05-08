@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
+from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Taxi, Souvenir, Preferencia
 
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
@@ -62,15 +62,15 @@ class AS_Rest(serializers.ModelSerializer):
         model = Restaurante
         fields = ('__all__')
         
-class CS_Hotel(serializers.ModelSerializer):
-    class Meta:
-        model = Hotel
-        fields = ['Nombre','Rate','Direccion','Categoria','Telefono','Web','Image']
+#class CS_Hotel(serializers.ModelSerializer):
+ #   class Meta:
+  #      model = Hotel
+   #     fields = ['Nombre','Rate','Direccion','Categoria','Telefono','Web','Image']
         
-class AS_Hotel(serializers.ModelSerializer):
-    class Meta:
-        model = Hotel
-        fields = ('__all__')
+#class AS_Hotel(serializers.ModelSerializer):
+ #   class Meta:
+  #      model = Hotel
+   #     fields = ('__all__')
 
 class CS_Taxi(serializers.ModelSerializer):
     class Meta:

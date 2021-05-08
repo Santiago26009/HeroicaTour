@@ -100,22 +100,22 @@ class Restaurante(models.Model):
     Descripcion = models.TextField(max_length=500)
     Image = models.CharField(max_length=25, null=False)
 
-class Hotel(models.Model):
-    Lujoso = 'Lujoso'
-    Modesto = 'Modesto'
-    Noche = 'Solo pasar la noche'
-    categoriah = [
-        (Lujoso,'Lujoso'),
-        (Modesto,'Modesto'),
-        (Noche, 'Solo pasar la noche'),
-    ]
-    Nombre = models.CharField(max_length=25, null=False)
-    Rate = models.DecimalField(decimal_places=1, max_digits=5)
-    Direccion = models.CharField(max_length=25, null=False)
-    Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
-    Telefono = models.CharField(max_length=10, null=True)
-    Web = models.CharField(max_length=25, null=False)
-    Image = models.CharField(max_length=25, null=False)
+#class Hotel(models.Model):
+ #   Lujoso = 'Lujoso'
+  #  Modesto = 'Modesto'
+   # Noche = 'Solo pasar la noche'
+    #categoriah = [
+     #   (Lujoso,'Lujoso'),
+      #  (Modesto,'Modesto'),
+       # (Noche, 'Solo pasar la noche'),
+    #]
+    #Nombre = models.CharField(max_length=25, null=False)
+    #Rate = models.DecimalField(decimal_places=1, max_digits=5)
+    #Direccion = models.CharField(max_length=25, null=False)
+    #Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
+    #Telefono = models.CharField(max_length=10, null=True)
+    #Web = models.CharField(max_length=25, null=False)
+    #Image = models.CharField(max_length=25, null=False)
 
 class Auto(models.Model):
     Rojo = 'Rojo'
@@ -178,7 +178,7 @@ class Resena(models.Model):
     Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
     Trabajador = models.ForeignKey(Trabajador, on_delete=models.SET_NULL, null=True)
     Tour = models.ForeignKey(Tour, on_delete=models.SET_NULL, null=True)
-    Hotel = models.ForeignKey(Hotel, on_delete=models.SET_NULL, null=True)
+    #Hotel = models.ForeignKey(Hotel, on_delete=models.SET_NULL, null=True)
     Restaurante = models.ForeignKey(Restaurante, on_delete=models.SET_NULL, null=True)
     SitioTuristico = models.ForeignKey(SitioTuristico, on_delete=models.SET_NULL, null=True)
     Auto = models.ForeignKey(Auto, on_delete=models.SET_NULL, null=True)

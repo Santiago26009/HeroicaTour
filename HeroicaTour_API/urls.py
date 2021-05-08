@@ -55,9 +55,9 @@ urlpatterns = [
     path('ad/restaurantes/', views.AdRestView.as_view()),
     path('ad/restaurantes/<int:pk>', views.AdRestViewDetails.as_view()),
     
-    path('cl/hoteles/', views.ClHotelView.as_view()),
-    path('ad/hoteles/', views.AdHotelView.as_view()),
-    path('ad/hoteles/<int:pk>', views.AdHotelViewDetails.as_view()),
+    #path('cl/hoteles/', views.ClHotelView.as_view()),
+    #path('ad/hoteles/', views.AdHotelView.as_view()),
+    #path('ad/hoteles/<int:pk>', views.AdHotelViewDetails.as_view()),
     
     path('cl/taxi/', views.ClTaxiView.as_view()),
     path('ad/taxi/', views.AdTaxiView.as_view()),
