@@ -65,7 +65,7 @@ class AS_Rest(serializers.ModelSerializer):
 class CS_Hotel(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ['Nombre','Rate','Direccion','Categoria','Web', 'Image']
+        fields = ['Nombre','Rate','Direccion','Categoria','Telefono','Web', 'Image']
         
 class AS_Hotel(serializers.ModelSerializer):
     class Meta:
