@@ -11,7 +11,7 @@ from .models import Auto as modelauto
 from .models import SitioTuristico as modelsitio
 from .models import Tour as modeltour
 from .models import Restaurante as modelrest
-#from .models import Hotel as modelhotel
+from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
 from. models import Preferencia as modelpreferencia
@@ -60,9 +60,9 @@ class ClRestView(ListAPIView):
     serializer_class = serializer.CS_Rest
     queryset = modelrest.objects.all()
     
-#class ClHotelView(ListAPIView):
- #   serializer_class = serializer.CS_Hotel
-  #  queryset = modelhotel.objects.all()
+class ClHotelView(ListAPIView):
+    serializer_class = serializer.CS_Hotel
+    queryset = modelhotel.objects.all()
     
 class ClTaxiView(ListAPIView):
     serializer_class = serializer.CS_Taxi
@@ -185,22 +185,22 @@ class AdRestViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)  
 
-#class AdHotelView(ListAPIView, CreateAPIView):
- #   serializer_class = serializer.AS_Hotel
-  #  queryset = modelhotel.objects.all()
+class AdHotelView(ListAPIView, CreateAPIView):
+    serializer_class = serializer.AS_Hotel
+    queryset = modelhotel.objects.all()
     
-   # def post(self, request, *args, **kwargs):
-    #    return self.create(request, *args, **kwargs)
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
-#class AdHotelViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
- #   serializer_class = serializer.AS_Hotel
-  #  queryset = modelhotel.objects.all()
+class AdHotelViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.AS_Hotel
+    queryset = modelhotel.objects.all()
     
-   # def put(self, request, *args, **kwargs):
-    #    return self.update(request, *args, **kwargs)
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
     
-    #def delete(self, request, *args, **kwargs):
-    #    return self.destroy(request, *args, **kwargs)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
     
 class AdTaxiView(ListAPIView, CreateAPIView):
     serializer_class = serializer.AS_Taxi
