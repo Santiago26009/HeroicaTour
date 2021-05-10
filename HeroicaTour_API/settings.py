@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'HeroicaTour_API.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'de3t4do2tmpomb',
-        'USER': 'jktgbkoppqisxp',
-        'PASSWORD':'8b5c410abe6cc47aa0db5967fc95b374c8e1ed03acf550b71cd5778de21fb2b2',
-        'HOST': 'ec2-52-0-114-209.compute-1.amazonaws.com',
+        'NAME': 'dhdaiftirqa8u',
+        'USER': 'qqagrekfrnlpsj',
+        'PASSWORD':'33b650a81cd548984bf8c505b32e46006cc3c9dcf201a2346d69225edf64b835',
+        'HOST': 'ec2-3-91-127-228.compute-1.amazonaws.com',
         'PORT': 5432
     }
 }
