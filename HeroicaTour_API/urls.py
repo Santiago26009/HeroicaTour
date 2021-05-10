@@ -34,10 +34,10 @@ urlpatterns = [
     path('ad/trabajadores/', views.AdTrabajadorView.as_view()),
     path('ad/trabajadores/<int:pk>', views.AdTrabajadorViewDetails.as_view()),
     
-    path('cl/clientes/', views.ClClienteView.as_view()),
-    path('cl/clientes/<int:pk>', views.ClClienteViewDetails.as_view()),
-    path('ad/clientes/', views.AdClienteView.as_view()),
-    path('ad/clientes/<int:pk>', views.AdClienteViewDetails.as_view()),
+    path('cl/usuario/', views.ClUsuarioView.as_view()),
+    path('cl/usuario/<int:pk>', views.ClUsuarioViewDetails.as_view()),
+    path('ad/usuario/', views.AdUsuarioView.as_view()),
+    path('ad/usuario/<int:pk>', views.AdUsuarioViewDetails.as_view()),
     
     path('cl/autos/', views.ClAutoView.as_view()),
     path('ad/autos/', views.AdAutoView.as_view()),

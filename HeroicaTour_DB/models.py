@@ -1,10 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
 from djmoney.models.fields import MoneyField
 
 # Create your models here.
-class Cliente(models.Model):
-    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+class Usuario(models.Model):
+    Usuario = models.CharField(max_length=25, null=False)
+    Password = models.CharField(max_length=25, null=False)
+    Email = models.EmailField(max_length=25)
     Nombre = models.CharField(max_length=25, null=False)
     Apellidos = models.CharField(max_length=25, null=False)
     Nacionalidad = models.CharField(max_length=25, null=False)
@@ -20,7 +21,6 @@ class Trabajador(models.Model):
         (Soporte,'Soporte'),
         (Admin, 'Admin'),
     ]
-    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Nombre = models.CharField(max_length=25, null=False)
     Apellidos = models.CharField(max_length=25, null=False)
     Celular = models.CharField(max_length=15)
@@ -54,6 +54,8 @@ class SitioTuristico(models.Model):
     Rate = models.DecimalField(decimal_places=1, max_digits=5)
     CostoEntrada = MoneyField(max_digits=10, default_currency='COP')
     Categoria = models.CharField(max_length=25, choices=categoriast, default=None)
+    Latitud = models.FloatField(null=False)
+    Longitud = models.FloatField(null=False)
     Descripcion = models.TextField(max_length=500)
     Image = models.CharField(max_length=25, null=False)
 
@@ -97,6 +99,8 @@ class Restaurante(models.Model):
     Rate = models.DecimalField(decimal_places=1, max_digits=5)
     CostoMin = MoneyField(max_digits=10, default_currency='COP')
     CostoMax = MoneyField(max_digits=10, default_currency='COP')
+    Latitud = models.FloatField(null=False)
+    Longitud = models.FloatField(null=False)
     Descripcion = models.TextField(max_length=500)
     Image = models.CharField(max_length=25, null=False)
 
@@ -114,6 +118,8 @@ class Hotel(models.Model):
     Direccion = models.CharField(max_length=25, null=False)
     Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
     Telefono = models.CharField(max_length=10, null=True)
+    Latitud = models.FloatField(null=False)
+    Longitud = models.FloatField(null=False)
     Web = models.CharField(max_length=25, null=False)
     Image = models.CharField(max_length=25, null=False)
 
@@ -174,13 +180,38 @@ class Taxi(models.Model):
     Aeropuerto = MoneyField(max_digits=10, default_currency='COP')
     Terminal = MoneyField(max_digits=10, default_currency='COP')
     
-class Resena(models.Model):
+class ResenaTrabajador(models.Model):
     Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
-    Trabajador = models.ForeignKey(Trabajador, on_delete=models.SET_NULL, null=True)
-    Tour = models.ForeignKey(Tour, on_delete=models.SET_NULL, null=True)
+    Trabajador = models.ForeignKey(Trabajador, on_delete=models.SET_NULL, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
+
+class ResenaTour(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    Tour = models.ForeignKey(Tour, on_delete=models.SET_NULL, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
+
+class ResenaHotel(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
     Hotel = models.ForeignKey(Hotel, on_delete=models.SET_NULL, null=True)
-    Restaurante = models.ForeignKey(Restaurante, on_delete=models.SET_NULL, null=True)
-    SitioTuristico = models.ForeignKey(SitioTuristico, on_delete=models.SET_NULL, null=True)
-    Auto = models.ForeignKey(Auto, on_delete=models.SET_NULL, null=True)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
+    
+class ResenaRestaurante(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    Restaurante = models.ForeignKey(Restaurante, on_delete=models.SET_NULL, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
+    
+class ResenaSitio(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    SitioTuristico = models.ForeignKey(SitioTuristico, on_delete=models.SET_NULL, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
+    
+class ResenaAuto(models.Model):
+    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    Auto = models.ForeignKey(Auto, on_delete=models.SET_NULL, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)

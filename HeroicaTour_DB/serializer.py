@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
+from .models import Trabajador, Usuario, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
 
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
@@ -12,15 +11,15 @@ class AS_Trabajador(serializers.ModelSerializer):
         model = Trabajador
         fields = ('__all__')
 
-class CS_Cliente(serializers.ModelSerializer):
+class CS_Usuario(serializers.ModelSerializer):
     class Meta:
-        model = Cliente
-        fields = ('__all__')
+        model = Usuario
+        fields = ['id','Email','Usuario','Password','Nombre','Apellidos','Nacionalidad','Celular']
 
-class AS_Cliente(serializers.ModelSerializer):
+class AS_Usuario(serializers.ModelSerializer):
     class Meta:
-        model = Cliente
-        fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular']
+        model = Usuario
+        fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular','Email','Encuesta']
 
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
@@ -105,16 +104,16 @@ class AS_Preferencia(serializers.ModelSerializer):
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Usuario
         fields = ('id', 'username', 'email')
 
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
+        model = Usuario
+        fields = ('id','Email','Usuario','Password','Nombre','Apellidos','Nacionalidad','Celular')
+        extra_kwargs = {'Password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
+        user = Usuario.objects.create_user(validated_data['Usuario'], validated_data['Email'], validated_data['Password'],validated_data['Nombre'], validated_data['Apellidos'], validated_data['Nacionalidad', validated_data['Celular'])
         return user
