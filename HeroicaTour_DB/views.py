@@ -6,7 +6,7 @@ from rest_framework import status
 from HeroicaTour_DB import serializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
 from .models import Trabajador as modeltrabajador
-from .models import Usuario as modelusuario
+from .models import Cliente as modelcliente
 from .models import Auto as modelauto
 from .models import SitioTuristico as modelsitio
 from .models import Tour as modeltour
@@ -30,9 +30,13 @@ class ClTrabajadorView(ListAPIView):
     serializer_class = serializer.CS_Trabajador
     queryset = modeltrabajador.objects.filter(Rol='Guia')
     
-class ClUsuarioViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
-    serializer_class = serializer.CS_Usuario
-    queryset = modelusuario.objects.all()
+class ClClienteView(CreateAPIView):
+    serializer_class = serializer.CS_Cliente
+    queryset = modelcliente.objects.all()
+
+class ClClienteViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.CS_Cliente
+    queryset = modelcliente.objects.all()
     
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
@@ -99,13 +103,13 @@ class AdTrabajadorViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
-class AdUsuarioView(ListAPIView):
-    serializer_class = serializer.AS_Usuario
-    queryset = modelusuario.objects.all()
+class AdClienteView(ListAPIView):
+    serializer_class = serializer.AS_Cliente
+    queryset = modelcliente.objects.all()
 
-class AdUsuarioViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
-    serializer_class = serializer.AS_Usuario
-    queryset = modelusuario.objects.all()
+class AdClienteViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
+    serializer_class = serializer.AS_Cliente
+    queryset = modelcliente.objects.all()
     
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
