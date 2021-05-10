@@ -6,6 +6,7 @@ from rest_framework import status
 from HeroicaTour_DB import serializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
 from .models import Trabajador as modeltrabajador
+from .models import ResenaTrabajador as resenatrabajador
 from .models import Cliente as modelcliente
 from .models import Auto as modelauto
 from .models import SitioTuristico as modelsitio
@@ -14,7 +15,13 @@ from .models import Restaurante as modelrest
 from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
-from. models import Preferencia as modelpreferencia
+from .models import Preferencia as modelpreferencia
+from .models import ResenaTrabajador as resenatrabajador
+from .models import ResenaSitio as resenasitio
+from .models import ResenaTour as resenatour
+from .models import ResenaRestaurante as resenarestaurante
+from .models import ResenaHotel as resenahotel
+from .models import ResenaAuto as resenaauto
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from rest_framework.response import Response
@@ -85,7 +92,31 @@ class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+class ClResenaTrabajadorView(CreateAPIView):
+    serializer_class = serializer.R_Trabajador
+    queryset = resenatrabajador.objects.all()
+
+class ClResenaSitioView(CreateAPIView):
+    serializer_class = serializer.R_Sitio
+    queryset = resenasitio.objects.all()
+
+class ClResenaTourView(CreateAPIView):
+    serializer_class = serializer.R_Tour
+    queryset = resenatour.objects.all()
     
+class ClResenaRestauranteView(CreateAPIView):
+    serializer_class = serializer.R_Rest
+    queryset = resenarestaurante.objects.all()
+
+class ClResenaHotelView(CreateAPIView):
+    serializer_class = serializer.R_Hotel
+    queryset = resenahotel.objects.all()
+
+class ClResenaAutoView(CreateAPIView):
+    serializer_class = serializer.R_Auto
+    queryset = resenaauto.objects.all()
+
 class AdTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.AS_Trabajador
     queryset = modeltrabajador.objects.all()
@@ -275,3 +306,4 @@ class LoginAPI(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginAPI, self).post(request, format=None)
+    

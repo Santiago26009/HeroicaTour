@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
+from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia, ResenaTrabajador, ResenaSitio, ResenaTour, ResenaRestaurante, ResenaHotel, ResenaAuto
 
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
@@ -15,11 +15,11 @@ class AS_Trabajador(serializers.ModelSerializer):
 class CS_Cliente(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ('__all__')
+        fields = ['Usuario','Nombre','Apellidos','Nacionalidad','Celular']
 
 class AS_Cliente(serializers.ModelSerializer):
     class Meta:
-        model = Cliente
+        model = Cliente 
         fields = ['id','Usuario','Nombre','Apellidos','Nacionalidad','Celular']
 
 class CS_Auto(serializers.ModelSerializer):
@@ -101,6 +101,36 @@ class AS_Preferencia(serializers.ModelSerializer):
     class Meta:
         model = Preferencia
         fields = ('__all__')
+
+class R_Trabajador(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaTrabajador
+        fields = ['Cliente','Trabajador','Rate','Descripcion']
+        
+class R_Sitio(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaSitio
+        fields = ['Cliente','SitioTuristico','Rate','Descripcion']
+        
+class R_Tour(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaTour
+        fields = ['Cliente','Tour','Rate','Descripcion']
+        
+class R_Rest(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaRestaurante
+        fields = ['Cliente','Restaurante','Rate','Descripcion']
+        
+class R_Hotel(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaHotel
+        fields = ['Cliente','Hotel','Rate','Descripcion']
+        
+class R_Auto(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaAuto
+        fields = ['Cliente','Auto','Rate','Descripcion']
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):

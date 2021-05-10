@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^tar(h0%90wvafiquvi=xxxdm7&e!r0_du5glqk8r4_qrtrc1l'
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-^tar(h0%90wvafiquvi=xxxdm7&e!r0_du5glqk8r4_qrtrc1l')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['heroicatour.herokuapp.com','127.0.0.1']
 
@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'HeroicaTour_API.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dhdaiftirqa8u',
-        'USER': 'qqagrekfrnlpsj',
-        'PASSWORD':'33b650a81cd548984bf8c505b32e46006cc3c9dcf201a2346d69225edf64b835',
-        'HOST': 'ec2-3-91-127-228.compute-1.amazonaws.com',
+        'NAME': 'HeroicaTour',
+        'USER': 'postgres',
+        'PASSWORD':'soldiersz7',
+        'HOST': '127.0.0.1',
         'PORT': 5432
     }
 }
@@ -153,3 +153,6 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ]
 }
+
+if config('DJANGO_PRODUCTION_ENV', default=False, cast=bool):
+    from .settings_production import *
