@@ -34,7 +34,6 @@ urlpatterns = [
     path('ad/trabajadores/', views.AdTrabajadorView.as_view()),
     path('ad/trabajadores/<int:pk>', views.AdTrabajadorViewDetails.as_view()),
     
-    path('cl/usuario/', views.ClUsuarioView.as_view()),
     path('cl/usuario/<int:pk>', views.ClUsuarioViewDetails.as_view()),
     path('ad/usuario/', views.AdUsuarioView.as_view()),
     path('ad/usuario/<int:pk>', views.AdUsuarioViewDetails.as_view()),

@@ -28,7 +28,7 @@ class Trabajador(models.Model):
     Rol = models.CharField(max_length=25, choices=rol, default=None)
 
 class Preferencia(models.Model):
-    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
     Presupuesto = MoneyField(max_digits=10, default_currency='COP')
     Acompañantes = models.IntegerField(null=False)
     Alojamiento = models.BooleanField(default=False)
