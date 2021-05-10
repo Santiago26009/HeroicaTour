@@ -105,7 +105,7 @@ class AS_Preferencia(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('id', 'Usuario', 'Email')
+        fields = ('id', 'username', 'email')
 
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
@@ -115,5 +115,5 @@ class RegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'Password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = Usuario.objects.create_user(validated_data['Usuario'], validated_data['Email'], validated_data['Password'],validated_data['Nombre'], validated_data['Apellidos'], validated_data['Nacionalidad'], validated_data['Celular'])
+        user = Usuario.objects.create_user(validated_data['Usuario'], validated_data['Email'], validated_data['Password'],validated_data['Nombre'], validated_data['Apellidos'], validated_data['Nacionalidad', validated_data['Celular'])
         return user
