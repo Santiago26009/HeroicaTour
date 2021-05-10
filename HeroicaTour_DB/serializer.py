@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from .models import Trabajador, Usuario, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia
 
 class CS_Trabajador(serializers.ModelSerializer):
@@ -115,6 +114,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ('id','Email','Usuario','Password','Nombre','Apellidos','Nacionalidad','Celular')
         extra_kwargs = {'Password': {'write_only': True}}
 
-    def post(self, validated_data):
-        user = self.create(validated_data['Usuario'], validated_data['Email'], validated_data['Password'],validated_data['Nombre'], validated_data['Apellidos'], validated_data['Nacionalidad'], validated_data['Celular'])
+    def create(self, validated_data):
+        user = Usuario.objects.create(validated_data['Usuario'], validated_data['Email'], validated_data['Password'],validated_data['Nombre'], validated_data['Apellidos'], validated_data['Nacionalidad'], validated_data['Celular'])
         return user
