@@ -26,7 +26,7 @@ class Preferencia(models.Model):
     Duracion = models.IntegerField(null=False)
     
     def __str__(self):
-        return str(self.Cliente) 
+        return str(self.Usuario) 
 
 class Trabajador(models.Model):
     Guia = 'Guia'

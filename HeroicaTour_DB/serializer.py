@@ -95,7 +95,7 @@ class AS_Souvenir(serializers.ModelSerializer):
 class CS_Preferencia(serializers.ModelSerializer):
     class Meta:
         model = Preferencia
-        fields = ['Cliente','Presupuesto','Acompañantes','Alojamiento', 'Auto','Playa','Historia','Recordatorio','Duracion']
+        fields = ['Usuario','Presupuesto','Acompañantes','Alojamiento', 'Auto','Playa','Historia','Recordatorio','Duracion']
         
 class AS_Preferencia(serializers.ModelSerializer):
     class Meta:

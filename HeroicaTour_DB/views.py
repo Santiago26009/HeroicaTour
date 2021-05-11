@@ -13,12 +13,12 @@ from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
 from .models import Preferencia as modelpreferencia
-from .models import ResenaTrabajador as resenatrabajador
-from .models import ResenaSitio as resenasitio
-from .models import ResenaTour as resenatour
-from .models import ResenaRestaurante as resenarestaurante
-from .models import ResenaHotel as resenahotel
-from .models import ResenaAuto as resenaauto
+from. models import ResenaTrabajador as resenatrabajador
+from. models import ResenaSitio as resenasitio
+from. models import ResenaTour as resenatour
+from. models import ResenaRestaurante as resenarestaurante
+from. models import ResenaHotel as resenahotel
+from. models import ResenaAuto as resenaauto
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from rest_framework.response import Response
