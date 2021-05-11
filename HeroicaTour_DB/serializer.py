@@ -35,7 +35,7 @@ class AS_Auto(serializers.ModelSerializer):
 class CS_Sitio(serializers.ModelSerializer):
     class Meta:
         model = SitioTuristico
-        fields = ['Nombre','Direccion','Rate','CostoEntrada','Categoria','Descripcion','Image']
+        fields = ['Nombre','Direccion','Latitud','Longitud','Rate','CostoEntrada','Categoria','Descripcion','Image']
 
 class AS_Sitio(serializers.ModelSerializer):
     class Meta:
@@ -55,7 +55,7 @@ class AS_Tour(serializers.ModelSerializer):
 class CS_Rest(serializers.ModelSerializer):
     class Meta:
         model = Restaurante
-        fields = ['Nombre','Direccion','Categoria','Rate','CostoMin','CostoMax','Descripcion','Image']
+        fields = ['Nombre','Direccion','Latitud','Longitud','Categoria','Rate','CostoMin','CostoMax','Descripcion','Image']
         
 class AS_Rest(serializers.ModelSerializer):
     class Meta:
@@ -65,7 +65,7 @@ class AS_Rest(serializers.ModelSerializer):
 class CS_Hotel(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ['Nombre','Rate','Direccion','Categoria','Telefono','Web','Image']
+        fields = ['Nombre','Rate','Direccion','Latitud','Longitud','Categoria','Telefono','Web','Image']
         
 class AS_Hotel(serializers.ModelSerializer):
     class Meta:
@@ -92,7 +92,7 @@ class AS_Souvenir(serializers.ModelSerializer):
         model = Souvenir
         fields = ('__all__')
 
-class CS_Preferencia(serializers.ModelSerializer):
+class CS_Preferencia(serializers.ModelSerializer):  
     class Meta:
         model = Preferencia
         fields = ['Usuario','Presupuesto','Acompañantes','Alojamiento', 'Auto','Playa','Historia','Recordatorio','Duracion']

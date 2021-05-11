@@ -13,7 +13,6 @@ from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
 from .models import Preferencia as modelpreferencia
-from. models import ResenaTrabajador as resenatrabajador
 from. models import ResenaSitio as resenasitio
 from. models import ResenaTour as resenatour
 from. models import ResenaRestaurante as resenarestaurante
