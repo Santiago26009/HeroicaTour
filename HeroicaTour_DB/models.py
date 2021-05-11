@@ -17,7 +17,7 @@ class Cliente(models.Model):
         return str(self.Usuario) 
     
 class Preferencia(models.Model):
-    Cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE, null=False)
+    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
     Presupuesto = MoneyField(max_digits=10, default_currency='COP')
     Acompañantes = models.IntegerField(null=False)
     Alojamiento = models.BooleanField(default=False)
@@ -75,7 +75,7 @@ class SitioTuristico(models.Model):
     CostoEntrada = MoneyField(max_digits=10, default_currency='COP')
     Categoria = models.CharField(max_length=25, choices=categoriast, default=None)
     Descripcion = models.TextField(max_length=500)
-    Image = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=255, null=False)
     
     def __str__(self):
         return str(self.Nombre)
@@ -103,7 +103,7 @@ class Tour(models.Model):
     Descripcion = models.TextField(max_length=500)
     Costo = MoneyField(max_digits=10, default_currency='COP')
     Duracion = models.IntegerField(null=False)
-    Image = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=255, null=False)
     
     def __str__(self):
         return str(self.Nombre)
@@ -138,7 +138,7 @@ class Restaurante(models.Model):
     CostoMin = MoneyField(max_digits=10, default_currency='COP')
     CostoMax = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
-    Image = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=255, null=False)
     
     def __str__(self):
         return str(self.Nombre)
@@ -166,7 +166,7 @@ class Hotel(models.Model):
     Categoria = models.CharField(max_length=25, choices = categoriah, default=None)
     Telefono = models.CharField(max_length=10, null=True)
     Web = models.CharField(max_length=25, null=False)
-    Image = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=255, null=False)
     
     def __str__(self):
         return str(self.Nombre)
@@ -206,7 +206,7 @@ class Auto(models.Model):
     Capacidad = models.IntegerField(null=False)
     CostoPerDay = MoneyField(max_digits=10, default_currency='COP')
     Descripcion = models.TextField(max_length=500)
-    Image = models.CharField(max_length=25, null=False)
+    Image = models.CharField(max_length=255, null=False)
     
     def __str__(self):
         return str(self.Matricula)
@@ -222,7 +222,7 @@ class Souvenir(models.Model):
     LugardeVenta = models.CharField(max_length=25)
     CostoMin = MoneyField(max_digits=10, default_currency='COP')
     costoMax = MoneyField(max_digits=10, default_currency='COP')
-    Image = models.CharField(max_length=25, null=False)   
+    Image = models.CharField(max_length=255, null=False)   
     
     def __str__(self):
         return str(self.Nombre)
