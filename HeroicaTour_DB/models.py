@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from djmoney.models.fields import MoneyField
-from django.db.models import Avg
-from django.db.models import OrderBy
 
 # Create your models here.
 class Cliente(models.Model):
