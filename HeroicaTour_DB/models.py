@@ -53,7 +53,7 @@ class ResenaTrabajador(models.Model):
     Trabajador = models.ForeignKey(Trabajador, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
-    
+
 class SitioTuristico(models.Model):
     CentroComercial = 'Centros Comerciales'
     Playas = 'Playas'
