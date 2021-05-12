@@ -5,7 +5,7 @@ from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante
 class CS_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        fields = ['Nombre','Apellidos','Rate','Celular']
+        fields = ['id','Nombre','Apellidos','Rate','Celular']
 
 class AS_Trabajador(serializers.ModelSerializer):
     class Meta:
@@ -25,7 +25,7 @@ class AS_Cliente(serializers.ModelSerializer):
 class CS_Auto(serializers.ModelSerializer):
     class Meta:
         model = Auto
-        fields = ['Matricula','Marca','Modelo', 'Color', 'Rate','Capacidad','CostoPerDay','Descripcion', 'Image'] 
+        fields = ['id','Matricula','Marca','Modelo', 'Color', 'Rate','Capacidad','CostoPerDay','Descripcion', 'Image'] 
 
 class AS_Auto(serializers.ModelSerializer): 
     class Meta:
@@ -35,7 +35,7 @@ class AS_Auto(serializers.ModelSerializer):
 class CS_Sitio(serializers.ModelSerializer):
     class Meta:
         model = SitioTuristico
-        fields = ['Nombre','Direccion','Latitud','Longitud','Rate','CostoEntrada','Categoria','Descripcion','Image']
+        fields = ['id','Nombre','Direccion','Latitud','Longitud','Rate','CostoEntrada','Categoria','Descripcion','Image']
 
 class AS_Sitio(serializers.ModelSerializer):
     class Meta:
@@ -45,7 +45,7 @@ class AS_Sitio(serializers.ModelSerializer):
 class CS_Tour(serializers.ModelSerializer):
     class Meta:
         model = Tour
-        fields = ['Nombre','Categoria','Rate','Descripcion','Costo','Duracion','Image']
+        fields = ['id','Nombre','Categoria','Rate','Descripcion','Costo','Duracion','Image']
         
 class AS_Tour(serializers.ModelSerializer):
     class Meta:
@@ -55,7 +55,7 @@ class AS_Tour(serializers.ModelSerializer):
 class CS_Rest(serializers.ModelSerializer):
     class Meta:
         model = Restaurante
-        fields = ['Nombre','Direccion','Latitud','Longitud','Categoria','Rate','CostoMin','CostoMax','Descripcion','Image']
+        fields = ['id','Nombre','Direccion','Latitud','Longitud','Categoria','Rate','CostoMin','CostoMax','Descripcion','Image']
         
 class AS_Rest(serializers.ModelSerializer):
     class Meta:
@@ -65,7 +65,7 @@ class AS_Rest(serializers.ModelSerializer):
 class CS_Hotel(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ['Nombre','Rate','Direccion','Latitud','Longitud','Categoria','Telefono','Web','Image']
+        fields = ['id','Nombre','Rate','Direccion','Latitud','Longitud','Categoria','Telefono','Web','Image']
         
 class AS_Hotel(serializers.ModelSerializer):
     class Meta:
@@ -85,7 +85,7 @@ class AS_Taxi(serializers.ModelSerializer):
 class CS_Souvenir(serializers.ModelSerializer):
     class Meta:
         model = Souvenir
-        fields = ['Nombre','LugardeVenta','CostoMin','CostoMax','Image']
+        fields = ['id','Nombre','LugardeVenta','CostoMin','CostoMax','Image']
         
 class AS_Souvenir(serializers.ModelSerializer):
     class Meta:
