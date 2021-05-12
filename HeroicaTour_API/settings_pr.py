@@ -5,11 +5,11 @@ from decouple import config
 
 DATABASES = {
     'default':{
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'd2red0rctb8vmo',
-    'USER': 'cwxrrsrzadmqcj',
-    'PASSWORD':'607b40da628cbc9fba622892e3a053fd82ba6a318572fc4e1dd7c2671367d36f',
-    'HOST': 'ec2-23-23-128-222.compute-1.amazonaws.com',
-    'PORT': 5432
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'depflul5qe545g',
+        'USER': 'kutzhmshtuzbhi',
+        'PASSWORD':'a799dd0023fb1c5495ee44fb845d998dec7e6dc6eb67f30ebf0b357fca3005db',
+        'HOST': 'ec2-18-215-111-67.compute-1.amazonaws.com',
+        'PORT': 5432
     }
 }
