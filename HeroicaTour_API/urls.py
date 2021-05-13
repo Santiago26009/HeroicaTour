@@ -79,6 +79,6 @@ urlpatterns = [
     path('cl/encuesta/restaurante/', views.ClResenaRestauranteView.as_view()),
     path('cl/encuesta/hotel/', views.ClResenaHotelView.as_view()),
     path('cl/encuesta/auto/', views.ClResenaAutoView.as_view()),
-    path('cl/encuesta/souvenir', views.ClResenaSouvenirView.as_view()),
+    path('cl/encuesta/souvenir/', views.ClResenaSouvenirView.as_view()),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
