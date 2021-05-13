@@ -227,6 +227,12 @@ class Souvenir(models.Model):
     
     def __str__(self):
         return str(self.Nombre)
+    
+class ResenaSouvenir(models.Model):
+    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Souvenir = models.ForeignKey(Souvenir, on_delete=models.CASCADE, null=False)
+    Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
+    Descripcion = models.TextField(max_length=500)
 
 class Taxi(models.Model):
     Barrio = models.CharField(max_length=25, null=False, primary_key=True)

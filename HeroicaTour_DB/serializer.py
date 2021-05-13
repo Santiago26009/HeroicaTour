@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia, ResenaTrabajador, ResenaSitio, ResenaTour, ResenaRestaurante, ResenaHotel, ResenaAuto
+from .models import ResenaSouvenir, Trabajador, Cliente, Auto, SitioTuristico, Tour, Restaurante, Hotel, Taxi, Souvenir, Preferencia, ResenaTrabajador, ResenaSitio, ResenaTour, ResenaRestaurante, ResenaHotel, ResenaAuto
 from django.contrib.auth import authenticate
 
 class CS_Trabajador(serializers.ModelSerializer):
@@ -132,6 +132,11 @@ class R_Auto(serializers.ModelSerializer):
     class Meta:
         model = ResenaAuto
         fields = ['Usuario','Auto','Rate','Descripcion']
+
+class R_Souvenir(serializers.ModelSerializer):
+    class Meta:
+        model = ResenaSouvenir
+        fields = ['Usuario','souvenir','Rate','Descripcion']
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):

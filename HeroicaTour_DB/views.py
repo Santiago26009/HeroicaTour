@@ -18,6 +18,7 @@ from. models import ResenaTour as resenatour
 from. models import ResenaRestaurante as resenarestaurante
 from. models import ResenaHotel as resenahotel
 from. models import ResenaAuto as resenaauto
+from. models import ResenaSouvenir as resenasouvenir
 from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from rest_framework.response import Response
@@ -112,6 +113,10 @@ class ClResenaHotelView(CreateAPIView):
 class ClResenaAutoView(CreateAPIView):
     serializer_class = serializer.R_Auto
     queryset = resenaauto.objects.all()
+    
+class ClResenaSouvenirView(CreateAPIView):
+    serializer_class = serializer.R_Souvenir
+    queryset = resenasouvenir.objects.all()
 
 class AdTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.AS_Trabajador
