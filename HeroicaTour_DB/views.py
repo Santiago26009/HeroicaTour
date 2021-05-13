@@ -92,6 +92,10 @@ class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
 class ClResenaTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Trabajador
     queryset = resenatrabajador.objects.all()
+    
+    def get(self, request, *args, **kwargs):
+        return Response({'id':AuthTokenSerializer.username})
+    
 
 class ClResenaSitioView(CreateAPIView):
     serializer_class = serializer.R_Sitio
