@@ -89,7 +89,7 @@ class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
-class ClResenaTrabajadorView(CreateAPIView):
+class ClResenaTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Trabajador
     queryset = resenatrabajador.objects.all()
 
