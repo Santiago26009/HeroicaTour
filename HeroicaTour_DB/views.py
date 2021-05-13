@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from HeroicaTour_DB import serializer
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
 from .models import Trabajador as modeltrabajador
-from .models import ResenaTrabajador as resenatrabajador
 from .models import Cliente as modelcliente
 from .models import Auto as modelauto
 from .models import SitioTuristico as modelsitio
@@ -13,6 +12,7 @@ from .models import Hotel as modelhotel
 from .models import Taxi as modeltaxi
 from .models import Souvenir as modelsouvenir
 from .models import Preferencia as modelpreferencia
+from .models import ResenaTrabajador as resenatrabajador
 from. models import ResenaSitio as resenasitio
 from. models import ResenaTour as resenatour
 from. models import ResenaRestaurante as resenarestaurante
@@ -89,27 +89,27 @@ class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
-class ClResenaTrabajadorView(CreateAPIView):
+class ClResenaTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Trabajador
     queryset = resenatrabajador.objects.all()
 
-class ClResenaSitioView(CreateAPIView):
+class ClResenaSitioView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Sitio
     queryset = resenasitio.objects.all()
 
-class ClResenaTourView(CreateAPIView):
+class ClResenaTourView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Tour
     queryset = resenatour.objects.all()
     
-class ClResenaRestauranteView(CreateAPIView):
+class ClResenaRestauranteView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Rest
     queryset = resenarestaurante.objects.all()
 
-class ClResenaHotelView(CreateAPIView):
+class ClResenaHotelView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Hotel
     queryset = resenahotel.objects.all()
 
-class ClResenaAutoView(CreateAPIView):
+class ClResenaAutoView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Auto
     queryset = resenaauto.objects.all()
 
