@@ -85,7 +85,7 @@ class AS_Taxi(serializers.ModelSerializer):
 class CS_Souvenir(serializers.ModelSerializer):
     class Meta:
         model = Souvenir
-        fields = ['id','Nombre','LugardeVenta','CostoMin','CostoMax','Image']
+        fields = ('__all__')
         
 class AS_Souvenir(serializers.ModelSerializer):
     class Meta:
