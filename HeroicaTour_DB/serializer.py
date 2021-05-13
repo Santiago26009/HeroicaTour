@@ -136,7 +136,7 @@ class R_Auto(serializers.ModelSerializer):
 class R_Souvenir(serializers.ModelSerializer):
     class Meta:
         model = ResenaSouvenir
-        fields = ['Usuario','souvenir','Rate','Descripcion']
+        fields = ['Usuario','Souvenir','Rate','Descripcion']
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
