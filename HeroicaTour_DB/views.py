@@ -89,27 +89,27 @@ class ClPreferenciaViewDetails(UpdateAPIView, DestroyAPIView, RetrieveAPIView):
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
-class ClResenaTrabajadorView(ListAPIView, CreateAPIView):
+class ClResenaTrabajadorView(CreateAPIView):
     serializer_class = serializer.R_Trabajador
     queryset = resenatrabajador.objects.all()
 
-class ClResenaSitioView(ListAPIView, CreateAPIView):
+class ClResenaSitioView(CreateAPIView):
     serializer_class = serializer.R_Sitio
     queryset = resenasitio.objects.all()
 
-class ClResenaTourView(ListAPIView, CreateAPIView):
+class ClResenaTourView(CreateAPIView):
     serializer_class = serializer.R_Tour
     queryset = resenatour.objects.all()
     
-class ClResenaRestauranteView(ListAPIView, CreateAPIView):
+class ClResenaRestauranteView(CreateAPIView):
     serializer_class = serializer.R_Rest
     queryset = resenarestaurante.objects.all()
 
-class ClResenaHotelView(ListAPIView, CreateAPIView):
+class ClResenaHotelView(CreateAPIView):
     serializer_class = serializer.R_Hotel
     queryset = resenahotel.objects.all()
 
-class ClResenaAutoView(ListAPIView, CreateAPIView):
+class ClResenaAutoView(CreateAPIView):
     serializer_class = serializer.R_Auto
     queryset = resenaauto.objects.all()
 
