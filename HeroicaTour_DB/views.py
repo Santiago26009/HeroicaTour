@@ -93,10 +93,6 @@ class ClResenaTrabajadorView(ListAPIView, CreateAPIView):
     serializer_class = serializer.R_Trabajador
     queryset = resenatrabajador.objects.all()
     
-    def get(self, request, *args, **kwargs):
-        return Response({'id':AuthTokenSerializer.username})
-    
-
 class ClResenaSitioView(CreateAPIView):
     serializer_class = serializer.R_Sitio
     queryset = resenasitio.objects.all()
@@ -306,4 +302,11 @@ class LoginAPI(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginAPI, self).post(request, format=None)
+    
+class UserAPI(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated, ]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
     

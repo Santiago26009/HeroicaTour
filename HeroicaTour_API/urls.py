@@ -29,6 +29,7 @@ urlpatterns = [
     path('login/', views.LoginAPI.as_view(), name='login'),
     path('logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('user/', views.UserAPI.as_view()),
     
     path('cl/trabajadores/', views.ClTrabajadorView.as_view()),
     path('ad/trabajadores/', views.AdTrabajadorView.as_view()),
