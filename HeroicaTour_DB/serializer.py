@@ -105,32 +105,32 @@ class AS_Preferencia(serializers.ModelSerializer):
 class R_Trabajador(serializers.ModelSerializer):
     class Meta:
         model = ResenaTrabajador
-        fields = ['Cliente','Trabajador','Rate','Descripcion']
+        fields = ['Usuario','Trabajador','Rate','Descripcion']
         
 class R_Sitio(serializers.ModelSerializer):
     class Meta:
         model = ResenaSitio
-        fields = ['Cliente','SitioTuristico','Rate','Descripcion']
+        fields = ['Usuario','SitioTuristico','Rate','Descripcion']
         
 class R_Tour(serializers.ModelSerializer):
     class Meta:
         model = ResenaTour
-        fields = ['Cliente','Tour','Rate','Descripcion']
+        fields = ['Usuario','Tour','Rate','Descripcion']
         
 class R_Rest(serializers.ModelSerializer):
     class Meta:
         model = ResenaRestaurante
-        fields = ['Cliente','Restaurante','Rate','Descripcion']
+        fields = ['Usuario','Restaurante','Rate','Descripcion']
         
 class R_Hotel(serializers.ModelSerializer):
     class Meta:
         model = ResenaHotel
-        fields = ['Cliente','Hotel','Rate','Descripcion']
+        fields = ['Usuario','Hotel','Rate','Descripcion']
         
 class R_Auto(serializers.ModelSerializer):
     class Meta:
         model = ResenaAuto
-        fields = ['Cliente','Auto','Rate','Descripcion']
+        fields = ['Usuario','Auto','Rate','Descripcion']
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
