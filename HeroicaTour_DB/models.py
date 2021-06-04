@@ -50,7 +50,7 @@ class Trabajador(models.Model):
         return str(self.Nombre)
 
 class ResenaTrabajador(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Trabajador = models.ForeignKey(Trabajador, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -80,7 +80,7 @@ class SitioTuristico(models.Model):
         return str(self.Nombre)
     
 class ResenaSitio(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     SitioTuristico = models.ForeignKey(SitioTuristico, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -108,7 +108,7 @@ class Tour(models.Model):
         return str(self.Nombre)
 
 class ResenaTour(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Tour = models.ForeignKey(Tour, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -143,7 +143,7 @@ class Restaurante(models.Model):
         return str(self.Nombre)
 
 class ResenaRestaurante(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -172,7 +172,7 @@ class Hotel(models.Model):
         return str(self.Nombre)
 
 class ResenaHotel(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -212,7 +212,7 @@ class Auto(models.Model):
         return str(self.Matricula)
 
 class ResenaAuto(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Auto = models.ForeignKey(Auto, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
@@ -229,7 +229,7 @@ class Souvenir(models.Model):
         return str(self.Nombre)
     
 class ResenaSouvenir(models.Model):
-    Usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     Souvenir = models.ForeignKey(Souvenir, on_delete=models.CASCADE, null=False)
     Rate = models.DecimalField(decimal_places=1, max_digits=5, null=False)
     Descripcion = models.TextField(max_length=500)
