@@ -22,4 +22,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+          SONAR_USER_HOME: ./sonar   # To store the SonarQube settings
+      - name: Set SonarCloud properties
+        run: |
+          echo "sonar.c.file.suffixes=-" >> ./sonar-project.properties
+          echo "sonar.cpp.file.suffixes=-" >> ./sonar-project.properties
+          echo "sonar.objc.file.suffixes=-" >> ./sonar-project.properties
+        working-directory: .
